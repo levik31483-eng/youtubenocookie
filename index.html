@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101116">
+    <title>YouTube No Cookie Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="intro">
+        <p class="eyebrow">A quieter way to watch</p>
+        <h1>YouTube, <span>without the extras.</span></h1>
+        <p class="description">Paste a YouTube link to open it in a privacy-enhanced player.</p>
+      </header>
+
+      <form class="link-form" id="link-form">
+        <label for="youtube-link">YouTube video link</label>
+        <div class="input-row">
+          <input
+            id="youtube-link"
+            name="youtube-link"
+            type="text"
+            inputmode="url"
+            placeholder="https://www.youtube.com/watch?v=..."
+            autocomplete="url"
+            required
+          >
+          <button class="play-button" type="submit">Play fullscreen <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="message" id="message" role="status" aria-live="polite"></p>
+      </form>
+
+      <section class="player-section" id="player-section" hidden aria-label="Video player">
+        <div class="player-frame" id="player-frame">
+          <iframe
+            id="video-player"
+            title="YouTube video player"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="autoplay; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="player-details">
+          <div class="converted-link">
+            <span class="eyebrow">Privacy-enhanced link</span>
+            <a id="converted-url" target="_blank" rel="noopener noreferrer"></a>
+          </div>
+          <button class="copy-button" id="copy-button" type="button">Copy link</button>
+        </div>
+        <button class="fullscreen-button" id="fullscreen-button" type="button">Enter fullscreen</button>
+      </section>
+
+      <footer>Videos are served by YouTube using <code>youtube-nocookie.com</code>.</footer>
+    </main>
+  </body>
+</html>
